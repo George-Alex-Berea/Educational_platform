@@ -1,6 +1,5 @@
 package org.example;
 
-import java.io.FilterOutputStream;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.nio.charset.StandardCharsets;
@@ -11,9 +10,9 @@ public class Exam {
     private String name;
     private LocalDateTime startTime;
     private LocalDateTime endTime;
-    private Set<Question<?>> questionsTimeSorted;
-    private Set<Question<?>> questionsDifficultySorted;
-    private Map<Student, Double> studentScores;
+    private final Set<Question<?>> questionsTimeSorted;
+    private final Set<Question<?>> questionsDifficultySorted;
+    private final Map<Student, Double> studentScores;
     private static final Comparator<Question<?>> comparatorTime = new Comparator<>() {
         @Override
         public int compare(Question o1, Question o2) {
@@ -124,13 +123,5 @@ public class Exam {
 
     public void setEndTime(LocalDateTime endTime) {
         this.endTime = endTime;
-    }
-
-    public Set<Question<?>> getQuestionsDifficultySorted() {
-        return questionsDifficultySorted;
-    }
-
-    public void setQuestionsDifficultySorted(Set<Question<?>> questionsDifficultySorted) {
-        this.questionsDifficultySorted = questionsDifficultySorted;
     }
 }
